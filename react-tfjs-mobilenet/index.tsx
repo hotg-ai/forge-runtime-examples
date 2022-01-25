@@ -3,7 +3,7 @@ import "core-js"; // we need to polyfill things like Array.at()
 import { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Webcam from "react-webcam";
-import { layers, tidy, div, relu6, add, serialization, mul } from "@tensorflow/tfjs"
+import  "@tensorflow/tfjs"
 import backend from "@hotg-ai/rune-tfjs-v2";
 import { Parameters, ForgeHook, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
 
@@ -11,34 +11,6 @@ import { Parameters, ForgeHook, useForge, registerBackend, OutputValue } from "@
 
 registerBackend(backend)
 
-export class HardSigmoid extends layers.Layer {
-    static get className() {
-        return 'HardSigmoid';
-    }
-    call(input: any) {
-        return tidy(() => div(relu6(add(input, 3.0)), 6.0));
-    }
-    computeOutputShape(inputShape: any) {
-        return inputShape;
-    }
-}
-serialization.registerClass(HardSigmoid);
-
-export class HardSwish extends layers.Layer {
-    static get className() {
-        return 'hardSwish';
-    }
-    call(input: any) {
-        return tidy(() => {
-            const hardSig = new HardSigmoid();
-            return mul(input, hardSig.call(input));
-        });
-    }
-    computeOutputShape(inputShape: any) {
-        return inputShape;
-    }
-}
-serialization.registerClass(HardSwish);
 
 
 const apiKey = process.env.REACT_APP_API_KEY;
@@ -79,7 +51,6 @@ export default function App() {
             const img: HTMLImageElement = new Image();
 
             img.onload = () => {
-                img.crossOrigin = "Anonymous";
                 if (img.src) {
 
                     // Forge should also provide the model
@@ -94,8 +65,7 @@ export default function App() {
                 }
 
             }
-            img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg/1920px-2018_Ford_Transit_Custom_300_Base_2.0_facelift.jpg";
-            // 
+            img.src = image
             // 
         }
     }, [image, forge]);

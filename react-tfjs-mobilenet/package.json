@@ -18,8 +18,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.38",
-    "parcel": "2.0.0-nightly.961",
-    "parcel-reporter-static-files-copy": "^1.3.4"
+    "parcel": "2.0.0-nightly.961"
   },
   "targets": {
     "default": {
