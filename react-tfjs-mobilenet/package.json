@@ -9,7 +9,7 @@
   "dependencies": {
     "@hotg-ai/forge": "^0.11.14",
     "@hotg-ai/rune": "^0.11.5",
-    "@hotg-ai/rune-tfjs-v2": "^0.11.7",
+    "@hotg-ai/rune-tfjs-v2": "^0.11.8",
     "@tensorflow/tfjs": "2.0.0",
     "prop-types": "^15.8.0",
     "react": "^17.0.2",
