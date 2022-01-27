@@ -1,6 +1,6 @@
-# CartoonGan Example
+# Mobilenet Example
 
-Flutter Implementation of Cartoongan rune for iOS/Android/Web
+Flutter Implementation of Mobilenet rune for iOS/Android/Web
 
 ![Screenshot](screenshot.png?raw=true "Screenshot")
 
