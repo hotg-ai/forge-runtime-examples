@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useReactMediaRecorder } from "react-media-recorder";
 import ReactDOM from "react-dom";
 import backend from "@hotg-ai/rune-tflite";
 import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
-
-import 'react-voice-recorder/dist/index.css';
 
 registerBackend(backend());
 
@@ -16,35 +15,61 @@ const forgeConfig: Parameters = {
     },
 };
 
-type RecordingData = {
-    url: string,
-    blob: Blob,
-    chunks: Blob[],
-    duration: { h: number, m: number, s: number, ms: number },
-};
-
-const ctx = new AudioContext({ sampleRate: 16000 });
-
 export default function App() {
-    const [result, setResult] = useState<OutputValue[] | undefined>();
-    const [recording, setRecording] = useState(false);
     const forge = useForge(forgeConfig);
+    const {
+        status,
+        startRecording,
+        stopRecording,
+        mediaBlobUrl,
+    } = useReactMediaRecorder({ audio: true });
+    const [outputs, setOutputs] = useState<OutputValue[]>([]);
 
-    const start = () => {
-        
+    console.log(status, mediaBlobUrl);
+
+    useEffect(() => {
+        if (forge.state == "loaded") {
+            fetch(mediaBlobUrl)
+                .then(r => r.arrayBuffer())
+                .then(buffer => new AudioContext().decodeAudioData(buffer))
+                .then(source => {
+                    // The Microspeech rune expects 1000ms of audio at 16kHz
+                    // so we need to resample it.
+                    const ctx = new OfflineAudioContext(source.numberOfChannels, 16000, 16000);
+                    var offlineSource = ctx.createBufferSource();
+                    offlineSource.buffer = source;
+                    offlineSource.connect(ctx.destination);
+                    offlineSource.start();
+                    return ctx.startRendering();
+                })
+                .then(audio => {
+                    const outputs = forge.predict({ audio: [audio] });
+                    setOutputs(outputs);
+                });
+        }
+    }, [mediaBlobUrl]);
+
+    let button;
+
+    if (status == "recording") {
+        button = (
+            <button onClick={stopRecording}>Stop Recording</button>
+        );
+    } else {
+        button = (
+            <button onClick={startRecording} disabled={forge.state != "loaded"}>Start Recording</button>
+        );
     }
-
-    const handleStop = async (data: RecordingData) => {
-        const buffer = await data.blob.arrayBuffer();
-        const decoded = await ctx.decodeAudioData(buffer);
-        console.log(decoded);
-    };
 
     return (
         <div className="App">
-            <button disabled={forge.state != "loaded"} onClick={() => start()}>Record</button>
-            <p>Recording: {recording}</p>
-            <p>Forge State: {forge.state}</p>
+            <p>Forge: {forge.state}</p>
+            <p>Recorder: {status}</p>
+            {button}
+            <br />
+            <audio controls>
+                <source src={mediaBlobUrl} />
+            </audio>
         </div>
     );
 }

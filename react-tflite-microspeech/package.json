@@ -10,7 +10,8 @@
     "@hotg-ai/forge": "^0.11.14",
     "@hotg-ai/rune-tflite": "^0.11.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-media-recorder": "^1.6.3"
   },
   "staticFiles": {
     "staticPath": "node_modules/@tensorflow/tfjs-tflite/dist"
