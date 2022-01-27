@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - runevm_fl (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - runevm_fl (from `.symlinks/plugins/runevm_fl/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  runevm_fl:
+    :path: ".symlinks/plugins/runevm_fl/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  runevm_fl: c71862cca794d7742220fcae7383c6fd365b16d7
+
+PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
+
+COCOAPODS: 1.10.2
