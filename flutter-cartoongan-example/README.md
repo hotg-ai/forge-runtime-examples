@@ -2,7 +2,7 @@
 
 Flutter Implementation of Cartoongan rune for iOS/Android/Web
 
-![Screenshot](screenshot.jpg?raw=true "Screenshot")
+![Screenshot](screenshot.png?raw=true "Screenshot")
 
 ## Running the app
 
