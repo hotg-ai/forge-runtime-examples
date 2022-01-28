@@ -1,9 +1,11 @@
-import "@tensorflow/tfjs";
+import "@tensorflow/tfjs"; // Register tfjs kernels
+
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import backend from "@hotg-ai/rune-tflite";
 import { Parameters, useForge, registerBackend } from "@hotg-ai/forge";
 
+// Tell forge to use the tflite model handler
 registerBackend(backend());
 
 const forgeConfig: Parameters = {

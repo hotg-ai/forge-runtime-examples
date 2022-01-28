@@ -6,6 +6,7 @@ import Webcam from "react-webcam";
 import backend from "@hotg-ai/rune-tfjs-v3";
 import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
 
+// Tell forge to use the tfjs model handler
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
@@ -26,7 +27,6 @@ export default function App() {
     // We want to re-run the prediction every time our image or the forge object
     // updates.
     useEffect(() => {
-
         if (image && forge.state === "loaded") {
             const img: HTMLImageElement = new Image();
 

@@ -1,4 +1,4 @@
-import "@tensorflow/tfjs"; // Tell tfjs to
+import "@tensorflow/tfjs"; // Register tfjs kernels
 
 import { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
@@ -6,11 +6,12 @@ import Webcam from "react-webcam";
 import backend from "@hotg-ai/rune-tflite";
 import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
 
+// Tell forge to use the tflite model handler
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
-    deploymentId: 36,
     apiKey: "3a2b6c45d78259514ad707f8516f2ab40eab1585",
+    deploymentId: 36,
     baseURL: "https://dev-forge.hotg.ai",
     telemetry: {
         baseURL: "https://dev-telemetry.hotg.ai",
@@ -32,7 +33,6 @@ export default function App() {
             img.onload = () => {
                 try {
                     const result = forge.predict({ image: [img] });
-                    console.log("[Predict]", result);
                     setResult(result);
                 } catch (error) {
                     console.log(error);
