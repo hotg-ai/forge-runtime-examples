@@ -46,6 +46,7 @@ export default function App() {
                 .then(audio => {
                     const outputs = forge.predict({ audio: [audio] });
                     setOutputs(outputs);
+                
                 });
         }
     }, [mediaBlobUrl]);
@@ -56,6 +57,7 @@ export default function App() {
 
     return (
         <div className="App">
+            <p>Press record and stop recording after saying your phrase :)</p>
             <p>Forge: {forge.state}</p>
             <p>Recorder: {status}</p>
             {button}
