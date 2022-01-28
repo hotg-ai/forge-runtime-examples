@@ -1,10 +1,12 @@
-import "@tensorflow/tfjs";
+import "@tensorflow/tfjs"; // Register tfjs kernels
+
 import { useEffect, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import ReactDOM from "react-dom";
 import backend from "@hotg-ai/rune-tflite";
 import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
 
+// Tell forge to use the tflite model handler
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
@@ -48,17 +50,9 @@ export default function App() {
         }
     }, [mediaBlobUrl]);
 
-    let button;
-
-    if (status == "recording") {
-        button = (
-            <button onClick={stopRecording}>Stop Recording</button>
-        );
-    } else {
-        button = (
-            <button onClick={startRecording} disabled={forge.state != "loaded"}>Start Recording</button>
-        );
-    }
+    let button = (status == "recording") ?
+        <button onClick={stopRecording}>Stop Recording</button> :
+        <button onClick={startRecording} disabled={forge.state != "loaded"}>Start Recording</button>;
 
     return (
         <div className="App">
@@ -67,9 +61,7 @@ export default function App() {
             {button}
             <br />
             <pre>
-                <code>
-                    {JSON.stringify(outputs, null, 2)}
-                </code>
+                <code>{JSON.stringify(outputs, null, 2)}</code>
             </pre>
         </div>
     );

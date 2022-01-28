@@ -1,116 +1,46 @@
-import "core-js"; // we need to polyfill things like Array.at()
+import "@tensorflow/tfjs"; // Register tfjs kernels
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
-
-import  "@tensorflow/tfjs-tflite"
 import backend from "@hotg-ai/rune-tflite";
-import { Parameters, ForgeHook, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
+import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/forge";
 
-
-
-registerBackend(backend())
-
-
-
-const apiKey = process.env.REACT_APP_API_KEY;
-if (!apiKey) {
-    throw new Error(`The "REACT_APP_API_KEY" environment variable wasn't set`);
-}
-const deploymentId = process.env.REACT_APP_DEPLOYMENT_ID;
-if (!deploymentId) {
-    throw new Error(
-        `The "REACT_APP_DEPLOYMENT_ID" environment variable wasn't set`,
-    );
-}
-
+// Tell forge to use the tflite model handler
+registerBackend(backend());
 
 const forgeConfig: Parameters = {
-    apiKey,
-    deploymentId: parseInt(deploymentId),
+    apiKey: "cfc0a93d40c8291d5eba8f372e8d04382ec600b7",
+    deploymentId: 13,
     baseURL: "https://dev-forge.hotg.ai",
     telemetry: {
         baseURL: "https://dev-telemetry.hotg.ai",
     },
 };
 
-
 export default function App() {
-    const [result, setResult] = useState<OutputValue[] | undefined>();
+    const [result, setResult] = useState<OutputValue[]>([]);
     const forge = useForge(forgeConfig);
 
-
-    // We want to re-run the prediction every time our image or the forge object
-    // updates. 
-    setTimeout( () => {
+    // re-run inference periodically
+    setTimeout(() => {
         if (forge.state === "loaded") {
-            
-            const result = forge.predict({});
-
-            setResult(result);
+            // Note: no inputs required because it uses Rune's internal RNG
+            setResult(forge.predict({}));
         }
-    }, 300)
+    }, 300);
+
+    const randomNumbers = result.flatMap(r => [...r.elements]);
 
     return (
         <div className="App">
             <header className="App-header">
-
-                <Body forge={forge} result={result} />
+                <h1>Random ({forge.state})</h1>
+                <pre>
+                    <code>{randomNumbers}</code>
+                </pre>
             </header>
         </div>
     );
-}
-
-type BodyProps = {
-    forge: ForgeHook;
-    result: OutputValue[] | undefined;
-};
-
-/**
- * Render a different body depending on whether Forge is loaded or not.
- */
-function Body({ forge, result }: BodyProps) {
-    switch (forge.state) {
-        case "not-loaded":
-        case "loading":
-            return (
-                <div>
-                    <p>Loading...</p>
-                </div>
-            );
-
-        case "loaded":
-            const results = result?.map(r =>
-                JSON.stringify(r.elements, null, 2),
-            );
-            return (
-                <div>
-                    <h3>Result</h3>
-                    <pre style={{ textAlign: "left", width: "50vw" }}>
-                        {results}
-                    </pre>
-
-                </div>
-            );
-
-        case "error":
-            const { error } = forge;
-            const msg = error
-                ? `${error.name}: ${error.message}`
-                : "An error occurred...";
-            const stack = error
-                ? `${error.stack}`
-                : "Error stack unavailable";
-
-            return (
-                <div>
-                    <p>{msg}</p>
-                    <pre style={{ textAlign: "left", width: "50vw" }}>
-                        {stack}
-                    </pre>
-                </div>
-            );
-    }
 }
 
 ReactDOM.render(<App />, document.getElementById('root'));

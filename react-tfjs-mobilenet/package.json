@@ -8,16 +8,15 @@
   },
   "dependencies": {
     "@hotg-ai/forge": "^0.11.14",
-    "@hotg-ai/rune": "^0.11.5",
-    "@hotg-ai/rune-tfjs-v2": "^0.11.8",
-    "@tensorflow/tfjs": "2.0.0",
-    "prop-types": "^15.8.0",
+    "@hotg-ai/rune-tfjs-v3": "^0.11.5",
+    "@tensorflow/tfjs": "^3.13.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-webcam": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
     "parcel": "2.0.0-nightly.961"
   },
   "targets": {
