@@ -9,6 +9,7 @@
   "dependencies": {
     "@hotg-ai/forge": "^0.11.14",
     "@hotg-ai/rune-tflite": "^0.11.3",
+    "@tensorflow/tfjs": "^3.13.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-media-recorder": "^1.6.3"

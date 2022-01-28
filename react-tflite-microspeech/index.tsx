@@ -1,3 +1,4 @@
+import "@tensorflow/tfjs";
 import { useEffect, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import ReactDOM from "react-dom";
@@ -24,8 +25,6 @@ export default function App() {
         mediaBlobUrl,
     } = useReactMediaRecorder({ audio: true });
     const [outputs, setOutputs] = useState<OutputValue[]>([]);
-
-    console.log(status, mediaBlobUrl);
 
     useEffect(() => {
         if (forge.state == "loaded") {
@@ -67,9 +66,11 @@ export default function App() {
             <p>Recorder: {status}</p>
             {button}
             <br />
-            <audio controls>
-                <source src={mediaBlobUrl} />
-            </audio>
+            <pre>
+                <code>
+                    {JSON.stringify(outputs, null, 2)}
+                </code>
+            </pre>
         </div>
     );
 }
