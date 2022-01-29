@@ -11,7 +11,7 @@ registerBackend(backend());
 
 const forgeConfig: Parameters = {
     apiKey: "c8b2fa8916040a0daea179b3c2a55edfa8d415c2",
-    deploymentId: 3,
+    deploymentId: 7,
     baseURL: "https://stg-forge.hotg.ai",
     telemetry: {
         baseURL: "https://stg-telemetry.hotg.ai",
