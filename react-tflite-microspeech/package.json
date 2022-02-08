@@ -7,7 +7,7 @@
     "build": "parcel build index.html --no-optimize"
   },
   "dependencies": {
-    "@hotg-ai/forge": "^0.11.14",
+    "@hotg-ai/forge": "^0.11.21",
     "@hotg-ai/rune-tflite": "^0.11.3",
     "@tensorflow/tfjs": "^3.13.0",
     "react": "^17.0.2",
