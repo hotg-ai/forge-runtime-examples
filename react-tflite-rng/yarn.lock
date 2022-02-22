@@ -212,17 +212,16 @@
   dependencies:
     tslib "^2.0.1"
 
-"@hotg-ai/forge@^0.11.14":
-  version "0.11.14"
-  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.11.14.tgz#aed060dba028d40125a733573e170ff500871b14"
-  integrity sha512-kaHhE+9tGHpEUxxUKmz5hJw1IPLmUbf5u6KcUmR/8nus8Iq4iLSsz5t0whRRnIRYxcH534WilJhtzYTQMUkqcw==
+"@hotg-ai/forge@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.12.0.tgz#d9c8811d8e215a3486617d464aaa0493c96ece45"
+  integrity sha512-OVTIeF8tig8MvKdVxS+yivK7BiQ8w0jUDRRtyX129enrf/gwU3MEC+qFpjw1l5bZiqjUfsRZVknkU2FC3987Sg==
   dependencies:
     "@fingerprintjs/fingerprintjs" "^3.3.0"
     "@hotg-ai/rune" "^0.11.5"
     "@stablelib/base64" "^1.0.1"
-    tweetnacl "^1.0.3"
-  optionalDependencies:
     react "^17.0.2"
+    tweetnacl "^1.0.3"
 
 "@hotg-ai/rune-tflite@^0.11.3":
   version "0.11.3"
@@ -1153,7 +1152,7 @@
   resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-layers/-/tfjs-layers-3.13.0.tgz#bc311664eba4f46802ffe3b05bea7df795cae10d"
   integrity sha512-kTWJ/+9fbNCMDA9iQjDMYHmWivsiWz8CKNSOZdeCW7tiBwF1EiREBVQXMk1JI11ngQa8f+rYSLs7rkhp3SYl5Q==
 
-"@tensorflow/tfjs-tflite@=0.0.1-alpha.8", "@tensorflow/tfjs-tflite@^0.0.1-alpha.8":
+"@tensorflow/tfjs-tflite@^0.0.1-alpha.8":
   version "0.0.1-alpha.8"
   resolved "https://registry.yarnpkg.com/@tensorflow/tfjs-tflite/-/tfjs-tflite-0.0.1-alpha.8.tgz#9fb5907097e090119202c99cf5fc396789bc25d7"
   integrity sha512-tRVQlZNYriZLQ/+05E7b4CMk478U8lgCVPn5hT95PXd8SEUIKGjEB85Vts+S38H1YrQsOEhV3ngJPDy3gtQhsg==
@@ -3172,7 +3171,7 @@ long@4.0.0:
   resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
   integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
-loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.1.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -3995,15 +3994,6 @@ process@^0.11.10:
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
-prop-types@^15.8.0:
-  version "15.8.1"
-  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
-  integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
-  dependencies:
-    loose-envify "^1.4.0"
-    object-assign "^4.1.1"
-    react-is "^16.13.1"
-
 psl@^1.1.28:
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
@@ -4095,20 +4085,10 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-is@^16.13.1:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
-  integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
-
 react-refresh@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
-
-react-webcam@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/react-webcam/-/react-webcam-6.0.0.tgz#46dd9ba44cebe6bf3cc4ea2ff09d12243900abfa"
-  integrity sha512-pw7067WYnDHRjAXYXrsLeig9/AAxCFDnnaEJzZ5ep6UZoYMqF4UNRtVkeTk0LotpwqT/c8vHisn/+QodNbUsQA==
 
 react@^17.0.2:
   version "17.0.2"
