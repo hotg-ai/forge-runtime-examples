@@ -10,12 +10,12 @@ import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/for
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
-    apiKey: "c8b2fa8916040a0daea179b3c2a55edfa8d415c2",
-    deploymentId: 7,
-    baseURL: "https://stg-forge.hotg.ai",
+    deploymentId: "c3ee6faf-26b0-43e5-9c28-fd35931f1cf3",
+    apiKey: "dd8af06aa9b215b5ebfd49eedef7f12731133919",
+    baseURL: "https://prd-us-east-1-forge.hotg.ai",
     telemetry: {
-        baseURL: "https://stg-telemetry.hotg.ai",
-    }
+        baseURL: "https://prd-us-east-1-telemetry.hotg.ai",
+    },
 };
 
 export default function App() {

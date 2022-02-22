@@ -10,11 +10,11 @@ import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/for
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
-    apiKey: "c8b2fa8916040a0daea179b3c2a55edfa8d415c2",
-    deploymentId: 4,
-    baseURL: "https://stg-forge.hotg.ai",
+    deploymentId: "8c3f4d0f-3ba3-4666-9b55-d56997d4c666",
+    apiKey: "3f9ba92084b788c6fff42f8720ee86124c5f3034",
+    baseURL: "https://prd-us-east-1-forge.hotg.ai",
     telemetry: {
-        baseURL: "https://stg-telemetry.hotg.ai",
+        baseURL: "https://prd-us-east-1-telemetry.hotg.ai",
     },
 };
 
@@ -46,7 +46,7 @@ export default function App() {
                 .then(audio => {
                     const outputs = forge.predict({ audio: [audio] });
                     setOutputs(outputs);
-                
+
                 });
         }
     }, [mediaBlobUrl]);
