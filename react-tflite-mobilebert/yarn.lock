@@ -212,17 +212,16 @@
   dependencies:
     tslib "^2.0.1"
 
-"@hotg-ai/forge@^0.11.14":
-  version "0.11.14"
-  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.11.14.tgz#aed060dba028d40125a733573e170ff500871b14"
-  integrity sha512-kaHhE+9tGHpEUxxUKmz5hJw1IPLmUbf5u6KcUmR/8nus8Iq4iLSsz5t0whRRnIRYxcH534WilJhtzYTQMUkqcw==
+"@hotg-ai/forge@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.12.0.tgz#d9c8811d8e215a3486617d464aaa0493c96ece45"
+  integrity sha512-OVTIeF8tig8MvKdVxS+yivK7BiQ8w0jUDRRtyX129enrf/gwU3MEC+qFpjw1l5bZiqjUfsRZVknkU2FC3987Sg==
   dependencies:
     "@fingerprintjs/fingerprintjs" "^3.3.0"
     "@hotg-ai/rune" "^0.11.5"
     "@stablelib/base64" "^1.0.1"
-    tweetnacl "^1.0.3"
-  optionalDependencies:
     react "^17.0.2"
+    tweetnacl "^1.0.3"
 
 "@hotg-ai/rune-tflite@^0.11.3":
   version "0.11.4"
@@ -4085,11 +4084,6 @@ react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
-
-react-media-recorder@^1.6.3:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/react-media-recorder/-/react-media-recorder-1.6.3.tgz#2e18172d90d4a26b0bbf3a141dfb8aeccb233dac"
-  integrity sha512-uJ5lys9JNzE77cLXZ0EOg9jxAqQb6BpntHHRpC1nHaVKA0ygbGLvBVXU95xms+VnS9mp8pW21oM9uxAjBylTtg==
 
 react-refresh@^0.9.0:
   version "0.9.0"

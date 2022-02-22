@@ -9,11 +9,11 @@ import { Parameters, useForge, registerBackend } from "@hotg-ai/forge";
 registerBackend(backend());
 
 const forgeConfig: Parameters = {
-    apiKey: "3a2b6c45d78259514ad707f8516f2ab40eab1585",
-    deploymentId: 35,
-    baseURL: "https://dev-forge.hotg.ai",
+    deploymentId: "dcf48f0b-8bec-44bc-bd9f-76a3dca36889",
+    apiKey: "dd8af06aa9b215b5ebfd49eedef7f12731133919",
+    baseURL: "https://prd-us-east-1-forge.hotg.ai",
     telemetry: {
-        baseURL: "https://dev-telemetry.hotg.ai",
+        baseURL: "https://prd-us-east-1-telemetry.hotg.ai",
     },
 };
 
