@@ -9,16 +9,14 @@ import { Parameters, useForge, registerBackend, OutputValue } from "@hotg-ai/for
 // Tell forge to use the tflite model handler
 registerBackend(backend());
 
-
 const forgeConfig: Parameters = {
-    deploymentId: "1eab38e8-abf8-47a9-8982-6594b3eab277",
-    apiKey: "c8b2fa8916040a0daea179b3c2a55edfa8d415c2",
-    baseURL: "https://stg-forge.hotg.ai",
+    deploymentId: "c3ee6faf-26b0-43e5-9c28-fd35931f1cf3",
+    apiKey: "dd8af06aa9b215b5ebfd49eedef7f12731133919",
+    baseURL: "https://prd-us-east-1-forge.hotg.ai",
     telemetry: {
-      baseURL: "https://stg-telemetry.hotg.ai",
+        baseURL: "https://prd-us-east-1-telemetry.hotg.ai",
     },
 };
-
 
 export default function App() {
     const [result, setResult] = useState<OutputValue[]>([]);

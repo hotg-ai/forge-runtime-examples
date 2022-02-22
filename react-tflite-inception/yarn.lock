@@ -212,10 +212,10 @@
   dependencies:
     tslib "^2.0.1"
 
-"@hotg-ai/forge@^0.11.22-alpha":
-  version "0.11.22-alpha"
-  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.11.22-alpha.tgz#aea55f3bffd530976b9e4efce175e65ba559f5fa"
-  integrity sha512-DgCbMPCMTAw2qxuhYUnj3B8u4Il6ntvJbU4LBzNJtoD3RXS7yIwVcSSoYAAPLZXc0O6spS969R3uIwCMr7u7KQ==
+"@hotg-ai/forge@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@hotg-ai/forge/-/forge-0.12.0.tgz#d9c8811d8e215a3486617d464aaa0493c96ece45"
+  integrity sha512-OVTIeF8tig8MvKdVxS+yivK7BiQ8w0jUDRRtyX129enrf/gwU3MEC+qFpjw1l5bZiqjUfsRZVknkU2FC3987Sg==
   dependencies:
     "@fingerprintjs/fingerprintjs" "^3.3.0"
     "@hotg-ai/rune" "^0.11.5"
